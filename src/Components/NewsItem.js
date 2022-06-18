@@ -8,7 +8,8 @@ export class NewsItem extends Component {
         <div className='my-3'>
         <div className="card">
         <span className="badge rounded-pill text-bg-danger
-        position-absolute top-1 translate middle" style={{left:'80%',zIndex:'1'}}>{source}</span>
+        position-absolute top-1 translate middle" style={{display:'flex',
+          justifyContent:'end',right: 0}}>{source}</span>
   <img src={!urlToImage?"https://cdn.cnn.com/cnnnext/dam/assets/220611125538-dom-phillips-and-bruno-pereira-split-super-tease.jpg":urlToImage} className="card-img-top" alt="..."/>
   <div className="card-body">
     <h5 className="card-title">{title}</h5>
