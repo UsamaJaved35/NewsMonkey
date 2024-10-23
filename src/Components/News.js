@@ -47,26 +47,25 @@ function News(props){
     useEffect(() => {   
       updateNews()
     }, [])
-   const handlePrev = async () => {
-        setpage(page-1);
-        updateNews();
-    }
-    const handleNext = async () => {
-        setpage(page+1);
-        updateNews();
-    }
+//    const handlePrev = async () => {
+//         setpage(page-1);
+//         updateNews();
+//     }
+//     const handleNext = async () => {
+//         setpage(page+1);
+//         updateNews();
+//     }
         return (
             <div>
                     <h1 className='text-center' style={{margin: '70px 0 0'}}
                      >News Monkey-Top {capitalizeFirstLetter(props.category)} Headlines</h1>
                     <InfiniteScroll
-                        dataLength={ articles.length}
-                        next={fetchMoreData()}
-                        inverse={true} //
-                        hasMore={articles.length!== totalResults.length}
-                        loader={<Spinner/>}
-                        scrollableTarget="scrollableDiv"
-                    > 
+                        dataLength={articles.length}
+                        next={fetchMoreData}  // Passing the reference, not invoking
+                        hasMore={articles.length < totalResults}  // Correct hasMore condition
+                        loader={<Spinner />}
+                        scrollableTarget="scrollableDiv">
+
                          { loading&&<Spinner/>}
                         <div className='container my-4'>
                         <div className='row'>
